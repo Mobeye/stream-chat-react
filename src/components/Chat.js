@@ -4,6 +4,9 @@ import { ChatContext } from '../context';
 import { IntlProvider } from 'react-intl';
 import messages_en from '../translations/en.json';
 
+import moment from 'moment';
+import 'moment/locale/fr';
+
 /**
  * Chat - Wrapper component for Chat. The needs to be placed around any other chat components.
  * This Chat component provides the ChatContext to all other components.
@@ -106,6 +109,7 @@ export class Chat extends PureComponent {
   });
 
   render() {
+    moment.locale(this.props.locale);
     return (
       <IntlProvider locale={this.props.locale} messages={this.props.messages}>
         <ChatContext.Provider value={this.getContext()}>
