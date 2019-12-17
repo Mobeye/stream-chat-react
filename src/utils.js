@@ -95,28 +95,79 @@ export const isPromise = (thing) => thing && typeof thing.then === 'function';
 export const byDate = (a, b) => a.created_at - b.created_at;
 
 // https://stackoverflow.com/a/29234240/7625485
-export const formatArray = (dict) => {
+export const formatTypingArray = (intl, dict) => {
   const arr2 = Object.keys(dict);
   const arr3 = [];
   arr2.forEach((item, i) =>
     arr3.push(dict[arr2[i]].user.name || dict[arr2[i]].user.id),
   );
+
+  const and = intl.formatMessage({
+    id: 'message_input.and',
+    defaultMessage: 'and',
+  });
+  const typing = intl.formatMessage(
+    {
+      id: 'message_input.typing',
+      defaultMessage:
+        '{count, plural, one {is typing...} other {are typing...}}',
+    },
+    { count: arr3.length },
+  );
+
   let outStr = '';
   if (arr3.length === 1) {
-    outStr = arr3[0] + ' is typing...';
-    dict;
+    outStr = arr3[0] + ' ' + typing;
   } else if (arr3.length === 2) {
     //joins all with "and" but =no commas
     //example: "bob and sam"
-    outStr = arr3.join(' and ') + ' are typing...';
+    outStr = arr3.join(' ' + and + ' ') + ' ' + typing;
   } else if (arr3.length > 2) {
     //joins all with commas, but last one gets ", and" (oxford comma!)
     //example: "bob, joe, and sam"
     outStr =
       arr3.slice(0, -1).join(', ') +
-      ', and ' +
+      ', ' +
+      and +
+      ' ' +
       arr3.slice(-1) +
-      ' are typing...';
+      ' ' +
+      typing;
+  }
+
+  return outStr;
+};
+
+// https://stackoverflow.com/a/29234240/7625485
+export const formatStatusArray = (intl, arr) => {
+  let outStr = '';
+  const slicedArr = arr.map((item) => item.name || item.id).slice(0, 5);
+  const restLength = arr.length - slicedArr.length;
+
+  const and = intl.formatMessage({
+    id: 'message_status.and',
+    defaultMessage: 'and',
+  });
+  const more = intl.formatMessage(
+    {
+      id: 'message_status.more',
+      defaultMessage: 'and {count} more',
+    },
+    { count: restLength },
+  );
+
+  const lastStr = restLength > 0 ? ' ' + more : '';
+
+  if (slicedArr.length === 1) {
+    outStr = slicedArr[0] + ' ';
+  } else if (slicedArr.length === 2) {
+    //joins all with "and" but =no commas
+    //example: "bob and sam"
+    outStr = slicedArr.join(' ' + and + ' ') + ' ';
+  } else if (slicedArr.length > 2) {
+    //joins all with commas, but last one gets ", and" (oxford comma!)
+    //example: "bob, joe, and sam"
+    outStr = slicedArr.join(', ') + lastStr;
   }
 
   return outStr;
