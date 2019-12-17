@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ChatAutoComplete } from './ChatAutoComplete';
-import { formatArray } from '../utils';
+import { formatTypingArray } from '../utils';
 
 import {
   ImageDropzone,
@@ -11,12 +11,13 @@ import {
 } from 'react-file-utils';
 
 import { Picker } from 'emoji-mart';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 /**
  * MessageInputLarge - Large Message Input to be used for the MessageInput.
  * @example ./docs/MessageInputLarge.md
  */
-export class MessageInputLarge extends PureComponent {
+class MessageInputLarge extends PureComponent {
   static propTypes = {
     /** Set focus to the text input if this is enabled */
     focus: PropTypes.bool.isRequired,
@@ -130,7 +131,8 @@ export class MessageInputLarge extends PureComponent {
   };
 
   render() {
-    const SendButton = this.props.SendButton;
+    const { intl, SendButton } = this.props;
+
     return (
       <div style={{ position: 'relative', zIndex: 0, width: '100%' }}>
         <ImageDropzone
@@ -156,7 +158,10 @@ export class MessageInputLarge extends PureComponent {
                 onSelectItem={this.props.onSelectItem}
                 value={this.props.text}
                 rows={1}
-                placeholder="Type your message"
+                placeholder={intl.formatMessage({
+                  id: 'message_input.placeholder',
+                  defaultMessage: 'Type your message',
+                })}
                 onPaste={this.props.onPaste}
                 grow={this.props.grow}
                 disabled={this.props.disabled}
@@ -211,10 +216,14 @@ export class MessageInputLarge extends PureComponent {
                     : ''
                 }`}
               >
-                {this.props.watcher_count} online
+                <FormattedMessage
+                  id="message_input.watching"
+                  defaultMessage="{count} online"
+                  values={{ count: this.props.watcher_count }}
+                />
               </span>
               <span className="str-chat__input-footer--typing">
-                {formatArray(this.props.typing)}
+                {formatTypingArray(intl, this.props.typing)}
               </span>
             </div>
           </div>
@@ -223,3 +232,6 @@ export class MessageInputLarge extends PureComponent {
     );
   }
 }
+
+MessageInputLarge = injectIntl(MessageInputLarge);
+export { MessageInputLarge };

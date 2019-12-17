@@ -10,12 +10,13 @@ import {
   FilePreviewer,
   FileUploadButton,
 } from 'react-file-utils';
+import { injectIntl } from 'react-intl';
 
 /**
  * MessageInputSmall - compact design to be used for the MessageInput. It has all the features of MessageInput minus the typing indicator.
  * @example ./docs/MessageInputSmall.md
  */
-export class MessageInputSmall extends PureComponent {
+class MessageInputSmall extends PureComponent {
   static propTypes = {
     /** Set focus to the text input if this is enabled */
     focus: PropTypes.bool.isRequired,
@@ -129,7 +130,8 @@ export class MessageInputSmall extends PureComponent {
   };
 
   render() {
-    const SendButton = this.props.SendButton;
+    const { intl, SendButton } = this.props;
+
     return (
       <div style={{ position: 'relative', zIndex: 0, width: '100%' }}>
         <ImageDropzone
@@ -161,7 +163,10 @@ export class MessageInputSmall extends PureComponent {
                 value={this.props.text}
                 rows={1}
                 onSelectItem={this.props.onSelectItem}
-                placeholder="Type your message"
+                placeholder={intl.formatMessage({
+                  id: 'message_input.placeholder',
+                  defaultMessage: 'Type your message',
+                })}
                 onPaste={this.props.onPaste}
                 grow={this.props.grow}
                 disabled={this.props.disabled}
@@ -214,3 +219,6 @@ export class MessageInputSmall extends PureComponent {
     );
   }
 }
+
+MessageInputSmall = injectIntl(MessageInputSmall);
+export { MessageInputSmall };
