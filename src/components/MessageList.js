@@ -146,6 +146,11 @@ class MessageList extends PureComponent {
     read: PropTypes.object,
     /** **Available from [channel context](https://getstream.github.io/stream-chat-react/#channel)** */
     typing: PropTypes.object,
+    /**
+     * Additional props for underlying MessageInput component.
+     * Available props - https://getstream.github.io/stream-chat-react/#messageinput
+     * */
+    additionalMessageInputProps: PropTypes.object,
   };
 
   static defaultProps = {
@@ -314,7 +319,7 @@ class MessageList extends PureComponent {
   };
 
   clearEditingState = (e) => {
-    if (e) {
+    if (e && e.preventDefault) {
       e.preventDefault();
     }
     this.setState({
@@ -729,6 +734,9 @@ class MessageList extends PureComponent {
               onMentionsClick={this.props.onMentionsClick}
               onMentionsHover={this.props.onMentionsHover}
               messageActions={this.props.messageActions}
+              additionalMessageInputProps={
+                this.props.additionalMessageInputProps
+              }
               getFlagMessageSuccessNotification={
                 this.props.getFlagMessageSuccessNotification
               }
@@ -811,9 +819,7 @@ MessageList = withChannelContext(MessageList);
 export { MessageList };
 
 const Center = ({ children }) => (
-  <div style={{ width: 100 + '%', display: 'flex', justifyContent: 'center' }}>
-    {children}
-  </div>
+  <div className="str-chat__list__center">{children}</div>
 );
 
 const Notification = ({ children, active, type }) => {

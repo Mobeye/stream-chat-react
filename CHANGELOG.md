@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.7.20](https://github.com/GetStream/stream-chat-react/releases/tag/v0.7.20) 2019-01-14
+
+- When you change the filters prop on the ChannelList component this now we will refresh the channels with the new query
+
+## [0.7.17](https://github.com/GetStream/stream-chat-react/releases/tag/v0.7.17) 2019-01-02
+
+- Added `maxRows` props to MessageInput component
+
+## [0.7.16](https://github.com/GetStream/stream-chat-react/releases/tag/v0.7.16) 2019-01-02
+
+- Removed inline styles from multiple locations
+- Exporting new component `ChatAutoComplete` (Advanced usage only)
+
+## [0.7.15](https://github.com/GetStream/stream-chat-react/releases/tag/v0.7.15) 2019-12-30
+
+- Added the following props on the `Thread` component so the underlying MessageList, MessageInput and Message components can be customized using props:
+  - `additionalParentMessageProps`
+  - `additionalMessageListProps`
+  - `additionalMessageInputProps`
+- Added the following props to the `Channel` component:
+  - `doUpdateMessageRequest` to override the update(edit) message request (Advanced usage only)
+  - `doSendMessageRequest` to override the send message request (Advanced usage only)
+
 ## [0.7.13](https://github.com/GetStream/stream-chat-react/releases/tag/v0.7.13) 2019-12-03
 
 - Handling and updating channel list on `channel.truncated` and `channel.deleted` event.

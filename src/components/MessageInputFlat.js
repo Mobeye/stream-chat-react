@@ -142,7 +142,6 @@ class MessageInputFlat extends PureComponent {
         className={`str-chat__input-flat ${
           SendButton ? 'str-chat__input-flat--send-button-active' : null
         }`}
-        style={{ position: 'relative', zIndex: 1, width: '100%' }}
       >
         <ImageDropzone
           accept={this.props.acceptedFiles}
@@ -164,6 +163,7 @@ class MessageInputFlat extends PureComponent {
                 onChange={this.props.handleChange}
                 value={this.props.text}
                 rows={1}
+                maxRows={this.props.maxRows}
                 placeholder={intl.formatMessage({
                   id: 'message_input.placeholder',
                   defaultMessage: 'Type your message',

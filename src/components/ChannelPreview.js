@@ -80,7 +80,7 @@ class ChannelPreview extends PureComponent {
       });
     }
     if (latestMessage.text) {
-      return latestMessage.text.slice(0, 20);
+      return latestMessage.text;
     } else {
       if (latestMessage.command) {
         return intl.formatMessage(
