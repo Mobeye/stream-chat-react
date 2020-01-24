@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import { ChatDown } from './ChatDown';
 import { withChatContext } from '../context';
 
-import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
+// import chevrondown from '../assets/str-chat__icon-chevron-down.svg';
 
 /**
  * ChannelList - A preview list of channels, allowing you to select the channel you want to open
@@ -63,11 +63,6 @@ class ChannelListTeam extends PureComponent {
                 >
                   {this.props.client.user.status}
                 </div>
-              </div>
-              <div className="str-chat__channel-list-team__header--right">
-                <button className="str-chat__channel-list-team__header--button">
-                  <img src={chevrondown} />
-                </button>
               </div>
             </div>
             {this.props.children}

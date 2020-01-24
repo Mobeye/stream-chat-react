@@ -13,6 +13,7 @@ import { EventComponent } from './EventComponent';
 import { KEY_CODES } from './AutoCompleteTextarea';
 import deepequal from 'deep-equal';
 import { MESSAGE_ACTIONS } from '../utils';
+import { FormattedMessage } from 'react-intl';
 
 /* eslint sonarjs/no-duplicate-string: 0 */
 
@@ -800,14 +801,20 @@ class MessageList extends PureComponent {
             </Notification>
           ))}
           <Notification active={!this.state.online} type="error">
-            Connection failure, reconnecting now...
+            <FormattedMessage
+              id="notification.connection_failure"
+              defaultMessage="Connection failure, reconnecting now..."
+            />
           </Notification>
 
           <MessageNotification
             showNotification={this.state.newMessagesNotification}
             onClick={() => this.goToNewMessages()}
           >
-            New Messages!
+            <FormattedMessage
+              id="notification.new_messages"
+              defaultMessage="New Messages !"
+            />
           </MessageNotification>
         </div>
       </React.Fragment>

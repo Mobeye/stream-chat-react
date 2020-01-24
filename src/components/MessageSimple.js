@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Attachment } from './Attachment';
 import { MessageActionsBox } from './MessageActionsBox';
-import { ReactionsList } from './ReactionsList';
+// import { ReactionsList } from './ReactionsList';
 import { Avatar } from './Avatar';
 import { Tooltip } from './Tooltip';
 import { LoadingIndicator } from './LoadingIndicator';
 import { Gallery } from './Gallery';
-import { ReactionSelector } from './ReactionSelector';
+// import { ReactionSelector } from './ReactionSelector';
 import { MessageRepliesCountButton } from './MessageRepliesCountButton';
 import { Modal } from './Modal';
 import { MessageInput } from './MessageInput';
@@ -311,9 +311,9 @@ class MessageSimple extends PureComponent {
     const {
       message,
       initialMessage,
-      channelConfig,
-      threadList,
-      handleOpenThread,
+      // channelConfig,
+      // threadList,
+      // handleOpenThread,
     } = this.props;
     if (
       message.type === 'error' ||
@@ -329,68 +329,68 @@ class MessageSimple extends PureComponent {
       return (
         <div className="str-chat__message-simple__actions">
           {this.renderMessageActions()}
-          {!threadList && channelConfig && channelConfig.replies && (
-            <div
-              onClick={handleOpenThread}
-              className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--thread"
-            >
-              <svg width="14" height="10" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.516 3c4.78 0 4.972 6.5 4.972 6.5-1.6-2.906-2.847-3.184-4.972-3.184v2.872L3.772 4.994 8.516.5V3zM.484 5l4.5-4.237v1.78L2.416 5l2.568 2.125v1.828L.484 5z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </div>
-          )}
-          {channelConfig && channelConfig.reactions && (
-            <div
-              className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--reactions"
-              onClick={this._clickReactionList}
-            >
-              <svg
-                width="16"
-                height="14"
-                viewBox="0 0 16 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.108 8.05a.496.496 0 0 1 .212.667C10.581 10.147 8.886 11 7 11c-1.933 0-3.673-.882-4.33-2.302a.497.497 0 0 1 .9-.417C4.068 9.357 5.446 10 7 10c1.519 0 2.869-.633 3.44-1.738a.495.495 0 0 1 .668-.212zm.792-1.826a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.298 0-.431.168-.54.307A.534.534 0 0 1 9.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zm-7 0a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.299 0-.432.168-.54.307A.533.533 0 0 1 2.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zM7 0a7 7 0 1 1 0 14A7 7 0 0 1 7 0zm4.243 11.243A5.96 5.96 0 0 0 13 7a5.96 5.96 0 0 0-1.757-4.243A5.96 5.96 0 0 0 7 1a5.96 5.96 0 0 0-4.243 1.757A5.96 5.96 0 0 0 1 7a5.96 5.96 0 0 0 1.757 4.243A5.96 5.96 0 0 0 7 13a5.96 5.96 0 0 0 4.243-1.757z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </div>
-          )}
+          {/*{!threadList && channelConfig && channelConfig.replies && (*/}
+          {/*  <div*/}
+          {/*    onClick={handleOpenThread}*/}
+          {/*    className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--thread"*/}
+          {/*  >*/}
+          {/*    <svg width="14" height="10" xmlns="http://www.w3.org/2000/svg">*/}
+          {/*      <path*/}
+          {/*        d="M8.516 3c4.78 0 4.972 6.5 4.972 6.5-1.6-2.906-2.847-3.184-4.972-3.184v2.872L3.772 4.994 8.516.5V3zM.484 5l4.5-4.237v1.78L2.416 5l2.568 2.125v1.828L.484 5z"*/}
+          {/*        fillRule="evenodd"*/}
+          {/*      />*/}
+          {/*    </svg>*/}
+          {/*  </div>*/}
+          {/*)}*/}
+          {/*{channelConfig && channelConfig.reactions && (*/}
+          {/*  <div*/}
+          {/*    className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--reactions"*/}
+          {/*    onClick={this._clickReactionList}*/}
+          {/*  >*/}
+          {/*    <svg*/}
+          {/*      width="16"*/}
+          {/*      height="14"*/}
+          {/*      viewBox="0 0 16 14"*/}
+          {/*      xmlns="http://www.w3.org/2000/svg"*/}
+          {/*    >*/}
+          {/*      <path*/}
+          {/*        d="M11.108 8.05a.496.496 0 0 1 .212.667C10.581 10.147 8.886 11 7 11c-1.933 0-3.673-.882-4.33-2.302a.497.497 0 0 1 .9-.417C4.068 9.357 5.446 10 7 10c1.519 0 2.869-.633 3.44-1.738a.495.495 0 0 1 .668-.212zm.792-1.826a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.298 0-.431.168-.54.307A.534.534 0 0 1 9.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zm-7 0a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.299 0-.432.168-.54.307A.533.533 0 0 1 2.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zM7 0a7 7 0 1 1 0 14A7 7 0 0 1 7 0zm4.243 11.243A5.96 5.96 0 0 0 13 7a5.96 5.96 0 0 0-1.757-4.243A5.96 5.96 0 0 0 7 1a5.96 5.96 0 0 0-4.243 1.757A5.96 5.96 0 0 0 1 7a5.96 5.96 0 0 0 1.757 4.243A5.96 5.96 0 0 0 7 13a5.96 5.96 0 0 0 4.243-1.757z"*/}
+          {/*        fillRule="evenodd"*/}
+          {/*      />*/}
+          {/*    </svg>*/}
+          {/*  </div>*/}
+          {/*)}*/}
         </div>
       );
     } else {
       return (
         <div className="str-chat__message-simple__actions">
-          {channelConfig && channelConfig.reactions && (
-            <div
-              className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--reactions"
-              onClick={this._clickReactionList}
-            >
-              <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M11.108 8.05a.496.496 0 0 1 .212.667C10.581 10.147 8.886 11 7 11c-1.933 0-3.673-.882-4.33-2.302a.497.497 0 0 1 .9-.417C4.068 9.357 5.446 10 7 10c1.519 0 2.869-.633 3.44-1.738a.495.495 0 0 1 .668-.212zm.792-1.826a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.298 0-.431.168-.54.307A.534.534 0 0 1 9.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zm-7 0a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.299 0-.432.168-.54.307A.533.533 0 0 1 2.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zM7 0a7 7 0 1 1 0 14A7 7 0 0 1 7 0zm4.243 11.243A5.96 5.96 0 0 0 13 7a5.96 5.96 0 0 0-1.757-4.243A5.96 5.96 0 0 0 7 1a5.96 5.96 0 0 0-4.243 1.757A5.96 5.96 0 0 0 1 7a5.96 5.96 0 0 0 1.757 4.243A5.96 5.96 0 0 0 7 13a5.96 5.96 0 0 0 4.243-1.757z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </div>
-          )}
-          {!threadList && channelConfig && channelConfig.replies && (
-            <div
-              onClick={handleOpenThread}
-              className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--thread"
-            >
-              <svg width="14" height="10" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.516 3c4.78 0 4.972 6.5 4.972 6.5-1.6-2.906-2.847-3.184-4.972-3.184v2.872L3.772 4.994 8.516.5V3zM.484 5l4.5-4.237v1.78L2.416 5l2.568 2.125v1.828L.484 5z"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </div>
-          )}
+          {/*{channelConfig && channelConfig.reactions && (*/}
+          {/*  <div*/}
+          {/*    className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--reactions"*/}
+          {/*    onClick={this._clickReactionList}*/}
+          {/*  >*/}
+          {/*    <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">*/}
+          {/*      <path*/}
+          {/*        d="M11.108 8.05a.496.496 0 0 1 .212.667C10.581 10.147 8.886 11 7 11c-1.933 0-3.673-.882-4.33-2.302a.497.497 0 0 1 .9-.417C4.068 9.357 5.446 10 7 10c1.519 0 2.869-.633 3.44-1.738a.495.495 0 0 1 .668-.212zm.792-1.826a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.298 0-.431.168-.54.307A.534.534 0 0 1 9.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zm-7 0a.477.477 0 0 1-.119.692.541.541 0 0 1-.31.084.534.534 0 0 1-.428-.194c-.106-.138-.238-.306-.539-.306-.299 0-.432.168-.54.307A.533.533 0 0 1 2.538 7a.544.544 0 0 1-.31-.084.463.463 0 0 1-.117-.694c.33-.423.742-.722 1.394-.722.653 0 1.068.3 1.396.724zM7 0a7 7 0 1 1 0 14A7 7 0 0 1 7 0zm4.243 11.243A5.96 5.96 0 0 0 13 7a5.96 5.96 0 0 0-1.757-4.243A5.96 5.96 0 0 0 7 1a5.96 5.96 0 0 0-4.243 1.757A5.96 5.96 0 0 0 1 7a5.96 5.96 0 0 0 1.757 4.243A5.96 5.96 0 0 0 7 13a5.96 5.96 0 0 0 4.243-1.757z"*/}
+          {/*        fillRule="evenodd"*/}
+          {/*      />*/}
+          {/*    </svg>*/}
+          {/*  </div>*/}
+          {/*)}*/}
+          {/*{!threadList && channelConfig && channelConfig.replies && (*/}
+          {/*  <div*/}
+          {/*    onClick={handleOpenThread}*/}
+          {/*    className="str-chat__message-simple__actions__action str-chat__message-simple__actions__action--thread"*/}
+          {/*  >*/}
+          {/*    <svg width="14" height="10" xmlns="http://www.w3.org/2000/svg">*/}
+          {/*      <path*/}
+          {/*        d="M8.516 3c4.78 0 4.972 6.5 4.972 6.5-1.6-2.906-2.847-3.184-4.972-3.184v2.872L3.772 4.994 8.516.5V3zM.484 5l4.5-4.237v1.78L2.416 5l2.568 2.125v1.828L.484 5z"*/}
+          {/*        fillRule="evenodd"*/}
+          {/*      />*/}
+          {/*    </svg>*/}
+          {/*  </div>*/}
+          {/*)}*/}
           {this.renderMessageActions()}
         </div>
       );
@@ -406,9 +406,9 @@ class MessageSimple extends PureComponent {
       clearEditingState,
       handleRetry,
       updateMessage,
-      handleReaction,
-      actionsEnabled,
-      messageListRect,
+      // handleReaction,
+      // actionsEnabled,
+      // messageListRect,
       handleAction,
       onMentionsHoverMessage,
       onMentionsClickMessage,
@@ -483,10 +483,6 @@ class MessageSimple extends PureComponent {
         >
           {this.renderStatus()}
 
-          <Avatar
-            image={message.user.image}
-            name={message.user.name || message.user.id}
-          />
           <div
             className="str-chat__message-inner"
             onClick={
@@ -499,28 +495,31 @@ class MessageSimple extends PureComponent {
               <React.Fragment>
                 {this.renderOptions()}
                 {/* if reactions show them */}
-                {hasReactions && !this.state.showDetailedReactions && (
-                  <ReactionsList
-                    reactions={message.latest_reactions}
-                    reaction_counts={message.reaction_counts}
-                    onClick={this._clickReactionList}
-                    reverse={true}
-                  />
-                )}
-                {this.state.showDetailedReactions && (
-                  <ReactionSelector
-                    handleReaction={handleReaction}
-                    detailedView
-                    reaction_counts={message.reaction_counts}
-                    latest_reactions={message.latest_reactions}
-                    messageList={messageListRect}
-                    ref={this.reactionSelectorRef}
-                  />
-                )}
+                {/*{hasReactions && !this.state.showDetailedReactions && (*/}
+                {/*  <ReactionsList*/}
+                {/*    reactions={message.latest_reactions}*/}
+                {/*    reaction_counts={message.reaction_counts}*/}
+                {/*    onClick={this._clickReactionList}*/}
+                {/*    reverse={true}*/}
+                {/*  />*/}
+                {/*)}*/}
+                {/*{this.state.showDetailedReactions && (*/}
+                {/*  <ReactionSelector*/}
+                {/*    handleReaction={handleReaction}*/}
+                {/*    detailedView*/}
+                {/*    reaction_counts={message.reaction_counts}*/}
+                {/*    latest_reactions={message.latest_reactions}*/}
+                {/*    messageList={messageListRect}*/}
+                {/*    ref={this.reactionSelectorRef}*/}
+                {/*  />*/}
+                {/*)}*/}
               </React.Fragment>
             )}
 
-            <div className="str-chat__message-attachment-container">
+            <div
+              className="str-chat__message-attachment-container"
+              style={{ marginLeft: 10 }}
+            >
               {hasAttachment &&
                 message.attachments.map((attachment, index) => {
                   if (attachment.type === 'image' && images.length > 1)
@@ -537,88 +536,114 @@ class MessageSimple extends PureComponent {
             </div>
             {images.length > 1 && <Gallery images={images} />}
 
-            {message.text && (
-              <div className="str-chat__message-text">
-                <div
-                  className={`
-									str-chat__message-text-inner str-chat__message-simple-text-inner
-									${this.state.isFocused ? 'str-chat__message-text-inner--focused' : ''}
-									${hasAttachment ? 'str-chat__message-text-inner--has-attachment' : ''}
-									${
-                    isOnlyEmojis(message.text)
-                      ? 'str-chat__message-simple-text-inner--is-emoji'
-                      : ''
-                  }
-                `.trim()}
-                  onMouseOver={onMentionsHoverMessage}
-                  onClick={onMentionsClickMessage}
-                >
-                  {message.type === 'error' && (
-                    <div className="str-chat__simple-message--error-message">
-                      <FormattedMessage
-                        id="message.error"
-                        defaultMessage="Error · Unsent"
-                      />
-                    </div>
-                  )}
-                  {message.status === 'failed' && (
-                    <div className="str-chat__simple-message--error-message">
-                      <FormattedMessage
-                        id="message.failed"
-                        defaultMessage="Message Failed · Click to try again"
-                      />
-                    </div>
-                  )}
-
-                  {unsafeHTML ? (
-                    <div dangerouslySetInnerHTML={{ __html: message.html }} />
-                  ) : (
-                    renderText(message)
-                  )}
-
-                  {/* if reactions show them */}
-                  {hasReactions && !this.state.showDetailedReactions && (
-                    <ReactionsList
-                      reactions={message.latest_reactions}
-                      reaction_counts={message.reaction_counts}
-                      onClick={this._clickReactionList}
-                      reverse={true}
-                    />
-                  )}
-                  {this.state.showDetailedReactions && (
-                    <ReactionSelector
-                      mine={this.isMine()}
-                      handleReaction={handleReaction}
-                      actionsEnabled={actionsEnabled}
-                      detailedView
-                      reaction_counts={message.reaction_counts}
-                      latest_reactions={message.latest_reactions}
-                      messageList={messageListRect}
-                      ref={this.reactionSelectorRef}
-                    />
-                  )}
-                </div>
-
-                {message.text && this.renderOptions()}
-              </div>
-            )}
-            {!threadList && message.reply_count !== 0 && (
-              <div className="str-chat__message-simple-reply-button">
-                <MessageRepliesCountButton
-                  onClick={handleOpenThread}
-                  reply_count={message.reply_count}
-                />
-              </div>
-            )}
             <div
-              className={`str-chat__message-data str-chat__message-simple-data`}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginLeft: 10,
+              }}
             >
               {!this.isMine() ? (
-                <span className="str-chat__message-simple-name">
-                  {message.user.name || message.user.id}
-                </span>
+                <div
+                  className={`str-chat__message-data str-chat__message-simple-data`}
+                >
+                  <span className="str-chat__message-simple-name">
+                    {message.user.name || message.user.id}
+                  </span>
+                </div>
               ) : null}
-              <span className="str-chat__message-simple-timestamp">{when}</span>
+
+              {message.text && (
+                <div
+                  className="str-chat__message-text"
+                  style={{ marginTop: 5, backgroundColor: '#F5F7F9' }}
+                >
+                  <div
+                    className={`
+                    str-chat__message-text-inner str-chat__message-simple-text-inner
+                    ${
+                      this.state.isFocused
+                        ? 'str-chat__message-text-inner--focused'
+                        : ''
+                    }
+                    ${
+                      hasAttachment
+                        ? 'str-chat__message-text-inner--has-attachment'
+                        : ''
+                    }
+                    ${
+                      isOnlyEmojis(message.text)
+                        ? 'str-chat__message-simple-text-inner--is-emoji'
+                        : ''
+                    }
+                  `.trim()}
+                    onMouseOver={onMentionsHoverMessage}
+                    onClick={onMentionsClickMessage}
+                  >
+                    {message.type === 'error' && (
+                      <div className="str-chat__simple-message--error-message">
+                        <FormattedMessage
+                          id="message.error"
+                          defaultMessage="Error · Unsent"
+                        />
+                      </div>
+                    )}
+                    {message.status === 'failed' && (
+                      <div className="str-chat__simple-message--error-message">
+                        <FormattedMessage
+                          id="message.failed"
+                          defaultMessage="Message Failed · Click to try again"
+                        />
+                      </div>
+                    )}
+
+                    {unsafeHTML ? (
+                      <div dangerouslySetInnerHTML={{ __html: message.html }} />
+                    ) : (
+                      renderText(message)
+                    )}
+
+                    {/* if reactions show them */}
+                    {/*{hasReactions && !this.state.showDetailedReactions && (*/}
+                    {/*  <ReactionsList*/}
+                    {/*    reactions={message.latest_reactions}*/}
+                    {/*    reaction_counts={message.reaction_counts}*/}
+                    {/*    onClick={this._clickReactionList}*/}
+                    {/*    reverse={true}*/}
+                    {/*  />*/}
+                    {/*)}*/}
+                    {/*{this.state.showDetailedReactions && (*/}
+                    {/*  <ReactionSelector*/}
+                    {/*    mine={this.isMine()}*/}
+                    {/*    handleReaction={handleReaction}*/}
+                    {/*    actionsEnabled={actionsEnabled}*/}
+                    {/*    detailedView*/}
+                    {/*    reaction_counts={message.reaction_counts}*/}
+                    {/*    latest_reactions={message.latest_reactions}*/}
+                    {/*    messageList={messageListRect}*/}
+                    {/*    ref={this.reactionSelectorRef}*/}
+                    {/*  />*/}
+                    {/*)}*/}
+                  </div>
+
+                  {message.text && this.renderOptions()}
+                </div>
+              )}
+              {!threadList && message.reply_count !== 0 && (
+                <div className="str-chat__message-simple-reply-button">
+                  <MessageRepliesCountButton
+                    onClick={handleOpenThread}
+                    reply_count={message.reply_count}
+                  />
+                </div>
+              )}
+              <div
+                className={`str-chat__message-data str-chat__message-simple-data`}
+              >
+                <span className="str-chat__message-simple-timestamp">
+                  {when}
+                </span>
+              </div>
             </div>
           </div>
         </div>

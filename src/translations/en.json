@@ -44,5 +44,7 @@
   "message_replies.count_button": "{count, plural, one {# reply} other {# replies}}",
   "message_status.and": "and",
   "message_status.more": "and {count} more",
-  "modal.close": "Close"
+  "modal.close": "Close",
+  "notification.new_messages": "New Messages !",
+  "notification.connection_failure": "Connection failure, reconnecting now..."
 }
