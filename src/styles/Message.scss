@@ -275,7 +275,9 @@ $border-radius: 5px;
 
     &-inner {
       position: relative;
-      flex: 1;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
       display: block;
       min-height: 32px;
       padding: 5px 10px;
